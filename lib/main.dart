@@ -1,33 +1,76 @@
 import 'package:flutter/material.dart';
-
 import 'Views/auth/login.dart';
+import 'Views/auth/register.dart';
+import 'Views/home/home.dart';
+import 'Views/posts/show.dart';
+import 'Views/user/profile.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int _currentIndex = 0;
+  List _screens = [
+    Home(),
+    Login(),
+    Register(),
+    ShowPost(),
+    Profile(),
+  ];
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+      home: Scaffold(
+        body: _screens[_currentIndex],
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.white,
+          elevation: 30,
+          selectedFontSize: 13,
+          showUnselectedLabels: false,
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _currentIndex,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: "الرئيسية",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: "الملف الشخصي",
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: Colors.red,
+              icon: Icon(
+                Icons.add,
+              ),
+              label: "اضافة اعلان",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: "بحث",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.login),
+              label: "دخول",
+            ),
+          ],
+        ),
       ),
-      home: const Login(),
     );
   }
 }
