@@ -37,7 +37,9 @@ class _FamousCardState extends State<FamousCard> {
             ),
           ),
           const SizedBox(height: 10),
-          const PostMetaData(),
+          const PostMetaData(
+            post: {'title': 'ashraf sayed'},
+          ),
         ],
       ),
     );

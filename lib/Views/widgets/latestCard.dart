@@ -87,7 +87,9 @@ class _LatestCardState extends State<LatestCard> {
                   ),
                 ),
                 const SizedBox(height: 10),
-                const PostMetaData(),
+                const PostMetaData(
+                  post: {'title': 'ashraf sayed'},
+                ),
               ],
             ),
           ),

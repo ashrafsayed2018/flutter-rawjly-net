@@ -4,7 +4,8 @@ import 'Views.dart';
 import 'likes.dart';
 
 class PostMetaData extends StatefulWidget {
-  const PostMetaData({Key? key}) : super(key: key);
+  final Map<String, dynamic> post;
+  const PostMetaData({Key? key, required this.post}) : super(key: key);
 
   @override
   State<PostMetaData> createState() => _PostMetaDataState();
@@ -27,10 +28,10 @@ class _PostMetaDataState extends State<PostMetaData> {
             ],
           ),
           const SizedBox(height: 10),
-          const Text(
-            '  اقوى وافضل واحسن واعظم ةيت ',
+          Text(
+            widget.post['title'],
             textAlign: TextAlign.start,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.bold,
               color: Colors.black,

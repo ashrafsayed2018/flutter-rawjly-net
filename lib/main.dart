@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:rawjly_net/Views/noitifications.dart';
 import 'package:rawjly_net/Views/posts/createPost.dart';
+import 'package:rawjly_net/Views/search.dart';
+
 import 'package:rawjly_net/Views/user/createProfile.dart';
 import 'Views/auth/login.dart';
 import 'Views/auth/register.dart';
@@ -23,10 +26,10 @@ class _MyAppState extends State<MyApp> {
   int _currentIndex = 0;
   final List _screens = const [
     Home(),
-    CreateProfile(),
+    Profile(),
     CreatePost(),
-    Register(),
-    ShowPost(),
+    Search(),
+    Notifications(),
   ];
   // This widget is the root of your application.
   @override
