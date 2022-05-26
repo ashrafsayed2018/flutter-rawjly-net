@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rawjly_net/Views/widgets/famousCard.dart';
 
 import 'latestCard.dart';
 
