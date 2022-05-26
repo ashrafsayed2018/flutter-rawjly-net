@@ -1,0 +1,64 @@
+ TabBar(
+                    isScrollable: true,
+                    indicatorColor: Colors.transparent,
+                    controller: controller,
+                    labelColor: Colors.blueAccent,
+                    unselectedLabelColor: Colors.black,
+                    labelStyle: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold),
+                    tabs: const [
+                      Tab(
+                        text: 'خدمات',
+                      ),
+                      Tab(
+                        text: 'تدريس',
+                      ),
+                      Tab(
+                        text: 'محركات',
+                      ),
+                      Tab(
+                        text: 'بيع وشراء',
+                      ),
+                      Tab(
+                        text: 'حيوانات',
+                      ),
+                      Tab(
+                        text: 'وظائف',
+                      ),
+                      Tab(
+                        text: 'عقارات',
+                      ),
+                    ]),
+                ConstrainedBox(
+                  constraints: const BoxConstraints(maxHeight: 300),
+                  child: TabBarView(controller: controller, children: [
+                    Container(
+                      color: Colors.red,
+                      child: const Center(child: Text('خدمات')),
+                    ),
+                    Container(
+                      color: Colors.green,
+                      child: const Center(child: Text('تدريس')),
+                    ),
+                    Container(
+                      color: Colors.blue,
+                      child: const Center(child: Text('محركات')),
+                    ),
+                    Container(
+                      color: Colors.red,
+                      child: const Center(child: Text('بيع وشراء')),
+                    ),
+                    Container(
+                      color: Colors.green,
+                      child: const Center(child: Text('حيوانات')),
+                    ),
+                    Container(
+                      color: Colors.blue,
+                      child: const Center(child: Text('وظائف')),
+                    ),
+                    Container(
+                      color: Colors.red,
+                      child: const Center(child: Text('عقارات')),
+                    ),
+                  ]),
+                ),

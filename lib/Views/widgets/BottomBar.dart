@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatefulWidget {
-  const BottomBar({Key? key}) : super(key: key);
+  final int currentIndex;
+  final void Function(int) onTap;
+  const BottomBar({Key? key, required this.currentIndex, required this.onTap})
+      : super(key: key);
 
   @override
   State<BottomBar> createState() => _BottomBarState();
 }
 
 class _BottomBarState extends State<BottomBar> {
-  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
@@ -17,12 +19,8 @@ class _BottomBarState extends State<BottomBar> {
       selectedFontSize: 13,
       showUnselectedLabels: false,
       type: BottomNavigationBarType.fixed,
-      currentIndex: _currentIndex,
-      onTap: (index) {
-        setState(() {
-          _currentIndex = index;
-        });
-      },
+      currentIndex: widget.currentIndex,
+      onTap: widget.onTap,
       items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
